@@ -1,3 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/*dark mode*/
+body {
+  background: white;
+  color: black;
+  transition: 0.4s ease;
+}
+
+/*Light mode*/
+body.dark {
+  background: black;
+  color: white;
+}
+
+/*header*/
 header {
   position: fixed;
   top: 0;
@@ -5,13 +25,20 @@ header {
   width: 100%;
   padding: 15px 40px;
   background: black;
-  color: white;
+  color:white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  transition: 0.4s ease;
 }
 
+/*header light mode*/
+body.dark header {
+  background: black;
+}
+
+/*logo*/
 .logo {
   display: flex;
   align-items: center;
@@ -22,34 +49,180 @@ header {
   height: 45px;
   object-fit: contain;
   border-radius: 6px;
+  transition: 0.3s;
 }
 
-/*Navigation*/
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 35px;
+.logo img:hover {
+  transform: scale(1.1);
 }
 
-/*Right button*/
+/*right button*/
 .right {
   display: flex;
   gap: 10px;
 }
-
-/*Dark mode button*/
+/*para sa dark mode*/
 #toggleTheme {
   border: none;
   background: none;
   font-size: 18px;
   cursor: pointer;
+  transition: 0.3s;
   color: white;
 }
 
-/*Sections*/
+body.dark #toggleTheme {
+  color: white;
+}
+
+#toggleTheme:hover {
+  transform: rotate(180deg);
+}
+
+/*navigation*/
+nav a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  margin-left: 35px;
+}
+
+/*underline*/
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: pink;
+  transition: 0.3s ease;
+}
+
+/*hover*/
+nav a:hover::after {
+  width: 100%;
+}
+
+/*active section*/
+nav a.active::after {
+  width: 100%;
+}
+
+
+body.dark nav a {
+  color: white;
+}
+
+nav a:hover,
+nav a.active {
+  color: pink;
+}
+
+/*sections ito yung parang line sa gilid*/
 section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
+  transition: 0.4s ease;
+}
+
+
+
+/*light mode sections*/
+body.dark section {
+  background: black;
+  color: white;
+}
+
+/*active nav fix still visible*/
+body.dark nav a.active {
+  color: pink;
+}
+
+
+/*Hero sections-----*/
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px;
+  background: #fff;
+  transition: 0.4s;
+}
+
+.hero:hover {
+  transform: translateY(-3px);
+}
+
+/*left side*/
+.hero-left {
+  max-width: 600px;
+}
+
+/*hero text*/
+.hero-left .intro {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.hero-left .name {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-left .role {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero-left .desc {
+  font-size: 14px;
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/*right image*/
+.hero-right img {
+  width: 320px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.hero-right img:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+/*dark mode, at may line sa gilid*/
+body.dark .hero {
+  background: black;
+}
+
+body.dark .hero .desc {
+  color: #ccc;
+}
+
+/*responsive*/
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-right img {
+    margin-top: 30px;
+    width: 260px;
+    height: auto;
+  }
 }
