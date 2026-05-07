@@ -1,0 +1,55 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 40px;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 35px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/*Navigation*/
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 35px;
+}
+
+/*Right button*/
+.right {
+  display: flex;
+  gap: 10px;
+}
+
+/*Dark mode button*/
+#toggleTheme {
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+}
+
+/*Sections*/
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
