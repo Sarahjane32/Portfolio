@@ -497,11 +497,95 @@ body.dark .about-card{
   margin-top:10px;
 }
 
-/*Yr text*/
+/*Yr text exp*/
 .about-card span{
-  font-size:12px;
-  color:#666;
+  font-size:13px;
+  color:black;
 }
+
+body.dark .about-card span{
+  color:white;
+}
+
+/*Tech Card---------------------*/
+/*for right side (skills)*/
+.tech-card{
+  grid-area:tech;
+
+  border:2px solid #222;
+  padding:18px;
+  background:white;
+
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  transition:0.4s;
+}
+
+/*for dark mode*/
+body.dark .tech-card{
+  background:#111;
+  border:2px solid #444;
+}
+
+/*hover*/
+.tech-card:hover{
+  transform:translateY(-6px);
+}
+
+/*Tech section title*/
+.tech-card h2{
+  font-size:20px;
+  margin-bottom:12px;
+}
+/*Stack Group-----------------*/
+.stack-group{
+  margin-bottom:20px;
+}
+
+/*Title*/
+.stack-group h3{
+  margin-bottom:10px;
+  font-size:15px;
+
+  opacity:0;
+  transform:translateX(30px);
+  animation:slideRight 1s ease forwards;
+}
+/*for skill tags container */
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/*ito yung individual skill box */
+.tags span{
+  padding:7px 12px;
+  border-radius:8px;
+  background:#f2f2f2;
+  font-weight:bold;
+  font-size:11px;
+
+  box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  transition:0.3s;
+  opacity:0;
+  transform:scale(0);
+  animation:zoomIn .6s ease forwards;
+}
+
+/*Animation*/
+.tags span:nth-child(1){animation-delay:.3s;}
+.tags span:nth-child(2){animation-delay:.5s;}
+.tags span:nth-child(3){animation-delay:.7s;}
+.tags span:nth-child(4){animation-delay:.9s;}
+
+/*Hover ng skill*/
+.tags span:hover{
+  transform:scale(1.08);
+  background:#222;
+  color:white;
+}
+
+/*Animations------------------------------*/
 
 @keyframes fadeDown {
   from{
@@ -522,6 +606,35 @@ body.dark .about-card{
   }
 }
 
+@keyframes slideLeft{
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes slideRight{
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes fadeDown{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes zoomIn{
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/*Responsive-----------------------*/
 @media(max-width:900px){
   .name-row{
     justify-content:center;
