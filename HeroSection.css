@@ -319,3 +319,77 @@ body.dark .hero .desc {
     display:none;
   }
 }
+
+/*ABOUT SECTION-----------------*/
+/*Container to ng buong AS*/
+#about{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:80px 5%;
+}
+
+/*Main Container(Wrapper ng buong content sa AS)*/
+.about-container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/*Profile Top(Top part: image + name +info)*/
+.profile-top{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:20px;
+
+  opacity:0;
+  transform:translateY(-40px);
+  animation:fadeDown 1s ease forwards;
+}
+
+/*Profile Image*/
+.profile-top img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border:2px solid gray;
+  border-radius:4px;
+  transition:0.4s;
+}
+
+/*for hover effect sa image*/
+.profile-top img:hover{
+  transform:scale(1.05);
+}
+/*Name para sa check icon container*/
+.name-row{
+  display:flex;
+  align-items:center;
+  gab:10px;
+}
+
+.verified{
+  color:Blue;
+
+}
+
+@keyframes fadeDown {
+  from{
+    opacity:0;
+    transform:translateY(-40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:900px){
+  .name-row{
+    justify-content:center;
+  }
+}
+
