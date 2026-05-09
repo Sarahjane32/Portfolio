@@ -363,16 +363,144 @@ body.dark .hero .desc {
 .profile-top img:hover{
   transform:scale(1.05);
 }
+/*Profile Info Text---------
+Name Text*/
+.profile-info h1{
+  font-size:24px;
+  opacity:0;
+  transform:translateX(-40px);
+  animation:slideLeft 1s ease forwards;
+  animation-delay:.3s;
+}
 /*Name para sa check icon container*/
 .name-row{
   display:flex;
   align-items:center;
-  gab:10px;
+  gap:10px;
 }
 
 .verified{
   color:Blue;
+  font-size:18px;
+  opacity:0;
+  transform:scale(0);
+  animation:zoomIn .6s ease forwards;
+  animation-delay:.8s;
+}
 
+/*location text, gray*/
+body.dark .location{
+  color:#ccc;
+}
+/*for subtitle bsit 2nd year*/
+.profile-info h3{
+  font-size:18px;
+  opacity:0;
+  transform:translateX(-30px);
+  animation:slideLeft 1s ease forwards;
+  animation-delay:.7s;
+}
+
+.resume-btn{
+  margin-top:12px;
+  padding:10px 18px;
+  border:none;
+  border-radius:30px;
+
+  background:#222;
+  color:white;
+
+  cursor:pointer;
+
+  font-size:13px;
+  font-weight:bold;
+
+  transition:0.3s;
+
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1s ease forwards;
+  animation-delay:1s;
+
+}
+
+/*para sa button*/
+.resume-btn:hover{
+  transform:translateY(-3px);
+  background:#444;
+}
+
+/*Grid Layout------------*/
+/*layout ng About + Tech */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.8fr 1fr;
+
+  grid-template-areas:
+  "about tech"
+  "about tech";
+
+  gap:18px;
+}
+
+/*About Card--------------*/
+/*sa left side (About text + Experience)*/
+
+.about-card{
+  grid-area:about;
+
+  border:2px solid #222;
+  padding:18px;
+
+  background:white;
+  box-shadow:0 8px 18px rgba(0,0,0,0.08);
+  transition:0.4s;
+}
+
+/* para sa dark mode */
+body.dark .about-card{
+  background:#111;
+  border:2px solid #444;
+}
+
+/* Hover effect */
+.about-card:hover{
+  transform:translateY(-6px);
+}
+
+/*sa About text */
+.about-card p{
+  line-height:1.6;
+  font-size:13px;
+
+  opacity:0;
+  transform:translateX(-40px);
+  animation:slideLeft 1s ease forwards;
+  animation-delay:.6s;
+}
+
+/*Experience Section--------------*/
+/*Experience title*/
+.about-card h2{
+  font-size:20px;
+  margin-bottom:12px;
+
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp 1s ease forwards;
+  animation-delay:.3s;
+}
+
+/*Job title*/
+.about-card h4{
+  font-size:14px;
+  margin-top:10px;
+}
+
+/*Yr text*/
+.about-card span{
+  font-size:12px;
+  color:#666;
 }
 
 @keyframes fadeDown {
@@ -387,9 +515,28 @@ body.dark .hero .desc {
   }
 }
 
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 @media(max-width:900px){
   .name-row{
     justify-content:center;
+  }
+
+  .about-gid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+    "about"
+    "tech";
+  }
+
+  .profile-top{
+    flex-direction:column;
+    text-align:center;
   }
 }
 
