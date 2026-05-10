@@ -649,3 +649,117 @@ body.dark .tech-card{
   }
 }
 
+/*Skill Flip Card-------------------*/
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.skill-card{
+  width:80px;
+  height:35px;
+  perspective:1000px;
+
+  opacity:0;
+  transform:translateY(20px) scale(0.9);
+
+  animation:zoomIn .6s ease forwards;
+  overflow:hidden;
+  border-radius:10px;
+}
+
+.skill-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .7s;
+}
+body.dark .skill-front{
+  background:#222;
+  color:white;
+}
+
+body.dark .skill-back{
+  background:#111;
+}
+.skill-card:hover .skill-inner{
+  transform:rotateY(180deg);
+}
+
+/*for font and back*/
+.skill-front,
+.skill-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+
+  border-radius:10px;
+}
+
+/*Front*/
+.skill-front{
+  background:#f2f2f2;
+  color:#111;
+
+  font-size:11px;
+  font-weight:bold;
+
+  transition:.3s;
+}
+
+/*Back*/
+.skill-back{
+  background:#222;
+
+  transform:rotateY(180deg);
+}
+
+/*Para sa Logo*/
+.skill-back img{
+  width:26px;
+  height:26px;
+
+  object-fit:contain;
+}
+
+/*for hover lang*/
+.skill-card:hover .skill-front{
+  background:#222;
+  color:white;
+}
+
+/*Dark Mode-------------*/
+body.dark .skill-front{
+  background:#222;
+  color:white;
+}
+
+body.dark .skill-back{
+  background:white;
+}
+
+/* Reverse hover sa dark */
+body.dark .skill-card:hover .skill-front{
+  background:white;
+  color:black;
+}
+
+/*Responsive--------------------*/
+@media(max-width:768px){
+
+  .tags{
+    grid-template-columns:
+    repeat(auto-fit, minmax(90px,1fr));
+  }
+
+}
