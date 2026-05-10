@@ -24,7 +24,7 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-
+/*for dark and light mode*/
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("toggleTheme");
 
@@ -33,5 +33,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     toggleBtn.textContent =
       document.body.classList.contains("dark") ? "☀️" : "🌙";
+  });
+});
+
+/*For Skill card animation control*/
+const skillCards = document.querySelectorAll(".skill-card");
+
+window.addEventListener("scroll", () => {
+
+  skillCards.forEach((card) => {
+
+    const top = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (top < windowHeight - 100) {
+      card.style.opacity = "1";
+      card.style.transform = "scale(1)";
+    }
+
+  });
+});
+/*for reset animation on load*/
+window.addEventListener("load", () => {
+  document.querySelectorAll(".skill-card").forEach(card => {
+    card.style.opacity = "1";
+    card.style.transform = "scale(1)";
   });
 });
