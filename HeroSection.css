@@ -500,11 +500,7 @@ body.dark .about-card{
 /*Yr text exp*/
 .about-card span{
   font-size:13px;
-  color:black;
-}
-
-body.dark .about-card span{
-  color:white;
+  color:#666;
 }
 
 /*Tech Card---------------------*/
