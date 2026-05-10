@@ -9,7 +9,7 @@
 body {
   background: white;
   color: black;
-  transition: 0.4s ease;
+  transition: background 0.3s, color 0.3s;
   overflow-x:hidden;
 }
 
@@ -152,7 +152,7 @@ section {
   justify-content: center;
   align-items: center;
   background: white;
-  transition: 0.4s ease;
+  transition: background 0.3s, color 0.3s;
   padding:50px 2%; /*para sa text at picture*/
 }
 
@@ -174,7 +174,7 @@ body.dark nav a.active {
   align-items: center;
   padding: 80px;
   background: #fff;
-  transition: 0.4s;
+  transition: background 0.3s, color 0.3s;
   width: 100%;
   gap:60px;
 }
@@ -305,16 +305,43 @@ body.dark .hero .desc {
   .hero {
     flex-direction: column-reverse;
     text-align: center;
-  }
-  .name {
-    font-size:18px;
-    margin:auto;
+    padding:120px 20px 40px;
+    gap:30px;
   }
 
-  .image-box{
-    width:260px;
-    height:340px;
+  .hero-left{
+    max-width:100%;
   }
+
+  .intro{
+    font-size:16px;
+    margin-top:10px;
+  }
+
+  .name {
+    font-size:32px;
+    line-height:1.2;
+  }
+  
+  .role{
+    font-size:16px;
+    white-space:normal;
+    border-right:none;
+    width:100%;
+    animation:none;
+  }
+
+  .desc{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .hero-right img{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+  }
+  
   nav{
     display:none;
   }
@@ -500,7 +527,8 @@ body.dark .about-card{
 /*Yr text exp*/
 .about-card span{
   font-size:13px;
-  color:#666;
+  color:inherit;
+  font-weight:500;
 }
 
 /*Tech Card---------------------*/

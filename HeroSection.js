@@ -60,3 +60,35 @@ window.addEventListener("load", () => {
     card.style.transform = "scale(1)";
   });
 });
+
+// ito kinukuha nya lahat ng elements na may animation habang nag sscroll
+const reveals = document.querySelectorAll(
+  ".profile-top, .about-card, .tech-card"
+);
+
+// for Function na magti-trigger ng animation kapag nakita sa screen
+function revealOnScroll() {
+
+  reveals.forEach((el) => {
+
+    // taas ng viewport ng user
+    const windowHeight = window.innerHeight;
+
+    // position ng element sa screen
+    const top = el.getBoundingClientRect().top;
+
+    // kapag nasa visible part na ng screen
+    if (top < windowHeight - 100) {
+
+      // mag aadd ng class para mag-start ang animation
+      el.classList.add("active");
+
+    }
+  });
+}
+
+// kapag nag scroll, tatakbo yung function
+window.addEventListener("scroll", revealOnScroll);
+
+// kapag unang load ng page, check agad kung visible na
+window.addEventListener("load", revealOnScroll);
