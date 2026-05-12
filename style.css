@@ -860,3 +860,248 @@ body.dark .skill-card:hover .skill-front{
   position: relative;
   z-index: 3;
 }
+
+/*Project Section--------------------------*/
+
+#projects{
+    min-height:100vh;
+    scroll-margin-top:30px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:white;
+
+    overflow:hidden;
+    padding:40px 0;
+    transition:0.3s ease;
+}
+
+/*Header------------------------------*/
+.project-header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.project-header h1{
+    font-size:22px;
+    font-weight:800;
+    color:#111;
+}
+
+.project-header h2{
+    font-size:18px;
+    line-height:1.5;
+    font-weight:800;
+    color:#111;
+}
+
+/*Pink line*/
+.pink-line{
+    width:100px;
+    height:3px;
+
+    background:hotpink;
+    margin:8px auto 15px;
+    border-radius:20px;
+}
+
+/*Slider---------------------------*/
+.slider-container{
+    width:100%;
+    max-width:900px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.slider{
+    position:relative;
+
+    width:100%;
+    height:320px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/*Cards--------------------*/
+
+.slide{
+    position:absolute;
+
+    width:170px;
+    height:240px;
+    border-radius:18px;
+
+    overflow:hidden;
+    background:white;
+    transition:all .6s ease;
+    opacity:.4;
+
+    transform:scale(.8);
+    filter:blur(1px);
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/*Active Card*/
+.slide.active{
+    width:240px;
+    height:300px;
+
+    opacity:1;
+    z-index:5;
+
+    transform:translateX(0) scale(1);
+    filter:blur(0);
+}
+
+/*Left*/
+.slide.left-1{
+    transform:translateX(-170px) scale(.9);
+    z-index:3;
+}
+
+.slide.left-2{
+    transform:translateX(-300px) scale(.75);
+    z-index:2;
+}
+
+/*Right*/
+.slide.right-1{
+    transform:translateX(170px) scale(.9);
+    z-index:3;
+}
+
+.slide.right-2{
+    transform:translateX(300px) scale(.75);
+    z-index:2;
+}
+
+/*Controls---------------------------*/
+.controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:15px;
+    margin-top:10px;
+}
+
+.controls button{
+    width:35px;
+    height:35px;
+
+    border:none;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+
+    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.controls button:hover{
+    background:#111;
+    color:white;
+}
+
+/*Dots-----------------------------*/
+.dots{
+    display:flex;
+    gap:6px;
+}
+
+.dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#bbb;
+}
+
+.active-dot{
+    background:orange;
+}
+
+/*Responsive*/
+@media(max-width:768px){
+
+    .slider{
+        height:250px;
+    }
+
+    .slide{
+        width:100px;
+        height:150px;
+    }
+
+    .slide.active{
+        width:150px;
+        height:210px;
+    }
+
+    .slide.left-1{
+        transform:translateX(-90px) scale(.9);
+    }
+
+    .slide.left-2{
+        transform:translateX(-150px) scale(.75);
+    }
+
+    .slide.right-1{
+        transform:translateX(90px) scale(.9);
+    }
+
+    .slide.right-2{
+        transform:translateX(150px) scale(.75);
+    }
+
+    .project-header h2{
+        font-size:15px;
+    }
+}
+
+/*Dark Mode---------------*/
+body.dark #projects{
+    background:black;
+}
+
+/*Text*/
+body.dark .project-header h1,
+body.dark .project-header h2{
+    color:white;
+}
+
+/*Slides*/
+body.dark .slide{
+    background:#111;
+}
+
+/*Buttons*/
+body.dark .controls button{
+    background:#222;
+    color:white;
+}
+
+body.dark .controls button:hover{
+    background:white;
+    color:black;
+}
+
+/*Dots*/
+body.dark .dot{
+    background:#555;
+}
+
+body.dark .active-dot{
+    background:hotpink;
+}
