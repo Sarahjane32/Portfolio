@@ -300,6 +300,26 @@ body.dark .hero .desc {
   color: #ccc;
 }
 
+.home{
+    position: relative;
+    overflow: hidden;
+}
+
+#bgSketch{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* lahat ng content sa home nasa ibabaw */
+.home > *:not(#bgSketch){
+    position: relative;
+    z-index: 2;
+}
+
 /*responsive*/
 @media (max-width: 768px) {
   .hero {
@@ -790,4 +810,53 @@ body.dark .skill-card:hover .skill-front{
     repeat(auto-fit, minmax(90px,1fr));
   }
 
+}
+
+/* Sketchpad Background */
+#bgSketch{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  pointer-events: auto;
+}
+
+/* IMPORTANT: para hindi masulatan text at image */
+.hero{
+  position: relative;
+  z-index: 2;
+}
+
+/* HOME CONTAINER */
+#hero{
+  position: relative;
+  overflow: hidden;
+}
+
+/* CANVAS BACKGROUND */
+#bgSketch{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  pointer-events: auto;
+}
+
+/* ALL HERO CONTENT ABOVE CANVAS */
+#hero > *{
+  position: relative;
+  z-index: 2;
+}
+
+.hero-right img,
+.hero-left,
+.image-box{
+  position: relative;
+  z-index: 3;
 }

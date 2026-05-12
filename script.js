@@ -92,3 +92,173 @@ window.addEventListener("scroll", revealOnScroll);
 
 // kapag unang load ng page, check agad kung visible na
 window.addEventListener("load", revealOnScroll);
+
+const canvas = document.getElementById("bgSketch"); 
+const ctx = canvas.getContext("2d");
+
+// resize
+function resizeCanvas(){
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+// drawing variables
+let drawing = false;
+let paths = [];
+let currentPath = [];
+
+// mouse down
+canvas.addEventListener("mousedown", (e)=>{
+
+  drawing = true;
+
+  currentPath = [];
+
+  currentPath.push({
+    x:e.offsetX,
+    y:e.offsetY
+  });
+
+});
+
+// mouse move
+canvas.addEventListener("mousemove", (e)=>{
+
+  if(!drawing) return;
+
+  currentPath.push({
+    x:e.offsetX,
+    y:e.offsetY
+  });
+
+});
+
+// mouse up
+window.addEventListener("mouseup", ()=>{
+
+  if(currentPath.length > 0){
+
+    paths.push({
+      points:[...currentPath],
+      time:Date.now()
+    });
+
+  }
+
+  drawing = false;
+
+});
+
+// mobile touch start
+canvas.addEventListener("touchstart",(e)=>{
+
+  drawing = true;
+
+  currentPath = [];
+
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+
+  currentPath.push({
+    x:touch.clientX - rect.left,
+    y:touch.clientY - rect.top
+  });
+
+});
+
+// mobile touch move
+canvas.addEventListener("touchmove",(e)=>{
+
+  if(!drawing) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+
+  currentPath.push({
+    x:touch.clientX - rect.left,
+    y:touch.clientY - rect.top
+  });
+
+});
+
+// mobile touch end
+canvas.addEventListener("touchend",()=>{
+
+  if(currentPath.length > 0){
+
+    paths.push({
+      points:[...currentPath],
+      time:Date.now()
+    });
+
+  }
+
+  drawing = false;
+
+});
+
+// draw path
+function drawPath(path){
+
+  const pts = path.points;
+
+  if(pts.length < 2) return;
+
+  // age
+  const age = Date.now() - path.time;
+
+  // fade in 3 sec
+  const opacity = 1 - (age / 3000);
+
+  ctx.beginPath();
+
+  ctx.moveTo(pts[0].x, pts[0].y);
+
+  for(let i = 1; i < pts.length; i++){
+    ctx.lineTo(pts[i].x, pts[i].y);
+  }
+
+  // neon pink glow
+  ctx.strokeStyle = `rgba(255, 77, 166, ${opacity})`;
+
+  ctx.lineWidth = 6;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  ctx.shadowColor = `rgba(255, 77, 166, ${opacity})`;
+  ctx.shadowBlur = 20;
+
+  ctx.stroke();
+}
+
+// animation loop
+function animate(){
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const now = Date.now();
+
+  // remove after 3 sec
+  paths = paths.filter(path => now - path.time < 3000);
+
+  // draw all
+  paths.forEach(drawPath);
+
+  // habang nagddrawing realtime
+  if(currentPath.length > 1){
+
+    drawPath({
+      points:currentPath,
+      time:Date.now()
+    });
+
+  }
+
+  requestAnimationFrame(animate);
+}
+
+animate();
