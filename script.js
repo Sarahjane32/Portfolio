@@ -262,3 +262,66 @@ function animate(){
 }
 
 animate();
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
+
+let current = 2;
+let autoSlide;
+
+/*Upper Slider---------------------*/
+function updateSlider(){
+    slides.forEach(slide => slide.className = "slide");
+    dots.forEach(dot => dot.classList.remove("active-dot"));
+
+    slides[current].classList.add("active");
+    dots[current].classList.add("active-dot");
+
+    let left1 = (current - 1 + slides.length) % slides.length;
+    let left2 = (current - 2 + slides.length) % slides.length;
+
+    let right1 = (current + 1) % slides.length;
+    let right2 = (current + 2) % slides.length;
+
+    slides[left1].classList.add("left-1");
+    slides[left2].classList.add("left-2");
+
+    slides[right1].classList.add("right-1");
+    slides[right2].classList.add("right-2");
+}
+
+/*Function ng NEXT------------------*/
+function nextSlide(){
+    current++;
+    if(current >= slides.length) current = 0;
+    updateSlider();
+    resetAuto();
+}
+
+/*Prev Slide-----------------------------*/
+function prevSlide(){
+    current--;
+    if(current < 0) current=slides.length-1;     
+    updateSlider();
+    resetAuto();
+}
+
+/*Auto Slide-------------*/
+function startAuto(){
+    autoSlide = setInterval(nextSlide, 3000);
+}
+
+function resetAuto(){
+    clearInterval(autoSlide);
+    startAuto();
+}
+
+/*For Buttons-----------------*/
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+
+updateSlider();
+startAuto();
