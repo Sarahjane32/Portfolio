@@ -262,6 +262,7 @@ function animate(){
 }
 
 animate();
+const toolCards = document.querySelectorAll(".tool-card");
 
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
@@ -274,9 +275,15 @@ let autoSlide;
 
 /*Upper Slider---------------------*/
 function updateSlider(){
-    slides.forEach(slide => slide.className = "slide");
-    dots.forEach(dot => dot.classList.remove("active-dot"));
 
+  slides.forEach(slide => {
+        slide.className = "slide";
+    });
+
+    dots.forEach(dot => {
+        dot.classList.remove("active-dot");
+    });
+    
     slides[current].classList.add("active");
     dots[current].classList.add("active-dot");
 
@@ -291,6 +298,19 @@ function updateSlider(){
 
     slides[right1].classList.add("right-1");
     slides[right2].classList.add("right-2");
+
+/*Auto Flip-------------*/
+const activeTool = slides[current].getAttribute("data-tool");
+
+ toolCards.forEach(card => {
+
+        card.classList.remove("auto-flip");
+
+        if(card.dataset.tool === activeTool){
+            card.classList.add("auto-flip");
+        }
+
+    });
 }
 
 /*Function ng NEXT------------------*/
@@ -323,5 +343,6 @@ function resetAuto(){
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlide);
 
+/*for Start*/
 updateSlider();
 startAuto();
