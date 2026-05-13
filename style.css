@@ -1482,35 +1482,35 @@ body.dark .web-tags span{
 }
 
 /*Dark Mode---------------*/
-body.dark-mode #contacts{
+body.dark #contacts{
     background: black;
 }
 
-body.dark-mode .contact-title,
-body.dark-mode .contact-description,
-body.dark-mode .contact-details p,
-body.dark-mode .contact-form-box h2{
+body.dark .contact-title,
+body.dark .contact-description,
+body.dark .contact-details p,
+body.dark .contact-form-box h2{
     color: white;
 }
 
-body.dark-mode .contact-form-box{
+body.dark .contact-form-box{
     background: #111;
     border: 3px solid hotpink;
 }
 
-body.dark-mode #contact-form input,
-body.dark-mode #contact-form textarea{
+body.dark #contact-form input,
+body.dark #contact-form textarea{
     background: #1a1a1a;
     color: white;
     border: 2px solid hotpink;
 }
 
-body.dark-mode #contact-form input::placeholder,
-body.dark-mode #contact-form textarea::placeholder{
+body.dark #contact-form input::placeholder,
+body.dark #contact-form textarea::placeholder{
     color: #bbb;
 }
 
-body.dark-mode .social-icons a{
+body.dark .social-icons a{
     color: white;
 }
 
