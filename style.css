@@ -1332,3 +1332,67 @@ body.dark .web-tags span{
         max-width: 300px;
     }
 }
+
+/*Contact Section------------------------*/
+#contacts{
+    width: 100%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5% 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+/*Container*/
+.contact-container{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+}
+
+/*Left Side*/
+.contact-info{
+    flex: 1;
+    min-width: 280px;
+}
+
+/*For Title*/
+.contact-title{
+    font-size: 100px;
+    line-height: .9;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.contact-title span{
+    color: hotpink;
+}
+
+/*For Desciption*/
+.contact-description{
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    max-width: 480px;
+    color: black;
+}
+
+.contact-details h3{
+    color: hotpink;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.contact-details p{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
