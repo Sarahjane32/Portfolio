@@ -1461,4 +1461,71 @@ body.dark .web-tags span{
     transform: scale(1.02);
 }
 
+/*Social Icons*/
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 
+    margin-top: 12px;
+}
+
+.social-icons a{
+    font-size: 30px;
+    color: black;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover{
+    color: hotpink;
+    transform: translateY(-4px);
+}
+
+/*Dark Mode---------------*/
+body.dark-mode #contacts{
+    background: black;
+}
+
+body.dark-mode .contact-title,
+body.dark-mode .contact-description,
+body.dark-mode .contact-details p,
+body.dark-mode .contact-form-box h2{
+    color: white;
+}
+
+body.dark-mode .contact-form-box{
+    background: #111;
+    border: 3px solid hotpink;
+}
+
+body.dark-mode #contact-form input,
+body.dark-mode #contact-form textarea{
+    background: #1a1a1a;
+    color: white;
+    border: 2px solid hotpink;
+}
+
+body.dark-mode #contact-form input::placeholder,
+body.dark-mode #contact-form textarea::placeholder{
+    color: #bbb;
+}
+
+body.dark-mode .social-icons a{
+    color: white;
+}
+
+/*Responsive----*/
+@media(max-width: 900px){
+    #contacts{
+        height: auto;
+        padding: 100px 5% 40px;
+    }
+
+    .contact-container{
+        flex-direction: column;
+    }
+
+    .contact-title{
+        font-size: 55px;
+    }
+}
