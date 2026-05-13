@@ -1396,3 +1396,69 @@ body.dark .web-tags span{
     font-weight: bold;
     color: black;
 }
+
+/*Form Box*/
+.contact-form-box{
+    flex: 1;
+    min-width: 300px;
+
+    background: white;
+    border: 3px solid hotpink;
+    border-radius: 35px;
+
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+/*Form Title*/
+.contact-form-box h2{
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 26px;
+    color: black;
+}
+
+/*Form*/
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*yung mga inputs*/
+#contact-form input,
+#contact-form textarea{
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid hotpink;
+    border-radius: 10px;
+    background: white;
+    font-size: 14px;
+    color: black;
+    outline: none;
+}
+
+/*Para sa Text Area*/
+#contact-form textarea{
+    height: 90px;
+    resize: none;
+}
+
+/*Button*/
+#contact-form button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: hotpink;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+#contact-form button:hover{
+    background: deeppink;
+    transform: scale(1.02);
+}
+
+
