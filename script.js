@@ -346,3 +346,19 @@ prevBtn.addEventListener("click", prevSlide);
 /*for Start*/
 updateSlider();
 startAuto();
+
+/*Reveal Animation*/
+const revealElements = document.querySelectorAll(".reveal-up");
+
+window.addEventListener("scroll", () => {
+    revealElements.forEach((el) => {
+
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if(revealTop < windowHeight - revealPoint){
+            el.classList.add("active");
+        }
+    });
+});
