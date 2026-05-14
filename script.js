@@ -363,10 +363,10 @@ window.addEventListener("scroll", () => {
     });
 });
 
-/* EMAILJS INIT */
+/*emailjs*/
 emailjs.init("b_8qEVna-xRU1srcJ");
 
-/* FORM SUBMIT */
+/*for form submit*/
 document
 .getElementById("contact-form")
 .addEventListener("submit", function(event){
@@ -415,4 +415,9 @@ document
 
 });
 
-
+/*para gumana sa cp*/
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('active');
+  });
+});

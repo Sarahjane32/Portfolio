@@ -40,6 +40,42 @@ body.dark header {
   color: black;
 }
 
+@media (max-width: 768px){
+
+  header{
+    padding: 10px 20px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav a{
+    font-size: 12px;
+  }
+
+  .right{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+  
+  .logo img{
+    width: 30px;
+  }
+
+  #toggleTheme{
+    font-size: 14px;
+  }
+}
+
 /*logo*/
 .logo {
   display: flex;
@@ -363,7 +399,15 @@ body.dark .hero .desc {
   }
   
   nav{
-    display:none;
+    display:flex;
+    flx-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+  }
+   .right{
+    position: absolute;
+    top: 10px;
+    right: 15px;
   }
 }
 
@@ -698,6 +742,10 @@ body.dark .tech-card{
 }
 
 /*Skill Flip Card-------------------*/
+.skill-card.active .skill-inner{
+  transform: rotateY(180deg);
+}
+/*may dinagdag ako sa taas para guamana sa cp*/
 .tags{
   display:flex;
   flex-wrap:wrap;
