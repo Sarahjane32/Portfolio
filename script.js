@@ -362,3 +362,57 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
+/* EMAILJS INIT */
+emailjs.init("b_8qEVna-xRU1srcJ");
+
+/* FORM SUBMIT */
+document
+.getElementById("contact-form")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const templateParams = {
+
+        from_name:
+        document.getElementById("name").value,
+
+        from_email:
+        document.getElementById("email").value,
+
+        subject:
+        document.getElementById("subject").value,
+
+        message:
+        document.getElementById("message").value,
+
+    };
+
+    emailjs.send(
+        "service_wz68f0u",
+        "template_q5jgi52",
+        templateParams
+    )
+
+    .then(function(response){
+
+        alert("Message sent successfully! 🌸");
+
+        document
+        .getElementById("contact-form")
+        .reset();
+
+    })
+
+    .catch(function(error){
+
+        alert("Failed to send message ❌");
+
+        console.log(error);
+
+    });
+
+});
+
+
