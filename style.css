@@ -400,7 +400,7 @@ body.dark .hero .desc {
   
   nav{
     display:flex;
-    flx-wrap:wrap;
+    flex-wrap:wrap;
     justify-content:center;
     gap:10px;
   }
@@ -1576,4 +1576,12 @@ body.dark .social-icons a{
     .contact-title{
         font-size: 55px;
     }
+}
+.footer{
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: white;
+  font-size: 14px;
+  margin-top: 50px;
 }
